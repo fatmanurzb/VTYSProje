@@ -1,0 +1,48 @@
+﻿@model dynamic
+
+    <div class="card">
+        <div class="card-header">Kullanıcı Bilgileri</div>
+        <div class="card-body card-block">
+            <form action="" method="post" class="">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">Name</div>
+                        <input type="text" id="name" name="name" class="form-control" value="@Model.Name">
+                        <div class="input-group-addon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                    </div>           
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">Surname</div>
+                        <input type="text" id="surname" name="surname" class="form-control" value="@Model.Surname">
+                        <div class="input-group-addon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">Email</div>
+                        <input type="email" id="email" name="email" class="form-control" value="@Model.Email">
+                        <div class="input-group-addon">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">Password</div>
+                        <input type="text" id="password" name="password" class="form-control" value="@Model.Password">
+                        <div class="input-group-addon">
+                            <i class="fa fa-asterisk"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions form-group">
+                    <button type="submit" class="btn btn-primary btn-sm">Güncelle</button>
+                </div>
+            </form>
+        </div>
+    </div>
