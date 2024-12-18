@@ -33,6 +33,7 @@
         $.ajax({
             url: url,
             type: "POST",
+            data: {Id : id},
             success: function (response) {
                 $("#PartialBody").html(response);
             }
@@ -64,6 +65,17 @@
     $("#getAllStudentsBtn").on("click", function () {
         $.ajax({
             url: "/Students/Index",
+            type: "GET",
+
+            success: function (response) {
+                $("#PartialBody").html(response);
+            }
+        });
+    });
+
+    $("#getAllCoursesBtn").on("click", function () {
+        $.ajax({
+            url: "/Courses/Index",
             type: "GET",
 
             success: function (response) {

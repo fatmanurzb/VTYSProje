@@ -36,7 +36,7 @@ namespace VTYSProje.Controllers
                 return PartialView(new
                 {
                     TeacherInfo = teacher,
-                    Courses = teacherCourses
+                    Course = teacherCourses
                 });
             }
         }

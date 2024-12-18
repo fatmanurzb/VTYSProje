@@ -50,16 +50,6 @@ namespace proje.Controllers
         }
 
 
-        public IActionResult getAllCourses()
-        {
-            using (Db db = new Db())
-            {
-                List<Courses> allCourses = db.Courses.ToList();
-                return PartialView(allCourses);
-            }
-        }
-
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
