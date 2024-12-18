@@ -1,0 +1,27 @@
+﻿@model List<Courses>
+
+<div class="col-lg-9">
+    <div class="table-responsive table--no-card m-b-30">
+        <table class="table table-borderless table-striped table-earning">
+            <thead>
+                <tr>
+                    <th>Ders Id</th>
+                    <th>Ders İsmi</th>
+                    <th>Ders Kredisi</th>
+                    <th>Ders Tipi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Courses courses in Model)
+                {
+                    <tr>
+                        <td>@courses.CourseId</td>
+                        <td>@courses.CourseName</td>
+                        <td>@courses.CourseCredit</td>
+                        <td>@(courses.CourseType == true ? "Zorunlu" : "Seçmeli")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+﻿@model dynamic
+
+<div class="row">
+<div class="col-5">
+<div class="col-lg-7">
+    <div class="table-responsive table--no-card m-b-30">
+        <table class="table table-borderless table-striped table-earning">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Ders Adı</th>
+                    <th>Kredisi</th>
+                    <th>Tipi</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Courses courses in Model)
+                {
+                    <tr>
+                        <td>@courses.CourseId</td>
+                        <td>@courses.CourseName</td>
+                        <td>@courses.CourseCredit</td>
+                        <td>@courses.CourseType</td>
+                        <td>
+                            <button type="button" class="btn-success tableDetailBtn" data-url="/Course/CourseDetay" data-id="@courses.CourseId">Detay</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+</div>

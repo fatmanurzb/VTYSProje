@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9j8vQepxiXKRgagzeOKTt5Iw9u1F6pW76XsGQHP5lGgLQxs+EeTCXeMPC0R7CQ5awlSQOeFzUU6HI5GC+XjOXw==",
+  "dgSpecHash": "lB9mDkh8BRLoWx03e/R/m7yOleEePnGXMlGfcpSgjp+b9+l1J2TcjcKAwbK2V0iaayRsaQw5Wytl4fINy3rFug==",
   "success": true,
-  "projectFilePath": "C:\\Users\\fatma\\source\\repos\\proje\\VTYSProje.csproj",
+  "projectFilePath": "C:\\Users\\fatma\\source\\repos\\VTYSProje\\VTYSProje.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fatma\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\fatma\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

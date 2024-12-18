@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fatma\\source\\repos\\proje\\VTYSProje.csproj": {}
+    "C:\\Users\\fatma\\source\\repos\\VTYSProje\\VTYSProje.csproj": {}
   },
   "projects": {
     "C:\\Users\\fatma\\source\\repos\\ClassLibrary1\\Data.csproj": {
@@ -86,14 +86,14 @@
         }
       }
     },
-    "C:\\Users\\fatma\\source\\repos\\proje\\VTYSProje.csproj": {
+    "C:\\Users\\fatma\\source\\repos\\VTYSProje\\VTYSProje.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fatma\\source\\repos\\proje\\VTYSProje.csproj",
+        "projectUniqueName": "C:\\Users\\fatma\\source\\repos\\VTYSProje\\VTYSProje.csproj",
         "projectName": "VTYSProje",
-        "projectPath": "C:\\Users\\fatma\\source\\repos\\proje\\VTYSProje.csproj",
+        "projectPath": "C:\\Users\\fatma\\source\\repos\\VTYSProje\\VTYSProje.csproj",
         "packagesPath": "C:\\Users\\fatma\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fatma\\source\\repos\\proje\\obj\\",
+        "outputPath": "C:\\Users\\fatma\\source\\repos\\VTYSProje\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\fatma\\AppData\\Roaming\\NuGet\\NuGet.Config",

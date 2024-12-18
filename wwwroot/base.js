@@ -10,9 +10,39 @@
         });
     });
 
+    $(".mainNavBtn").on("click", function () {
+        e.preventDefault();
+
+        const url = $(this).data("url");
+
+        $.ajax({
+            url: url,
+            type: "GET",
+            success: function (response) {
+                $("#PartialBody").html(response);
+            }
+        });
+    });
+
+    $(".tableDetailBtn").on("click", function () {
+        e.preventDefault();
+
+        const url = $(this).data("url");
+        const id = $(this).data("id");
+
+        $.ajax({
+            url: url,
+            type: "POST",
+            success: function (response) {
+                $("#PartialBody").html(response);
+            }
+        });
+    });
+
+
     $("#getAllAdminBtn").on("click", function () {
         $.ajax({
-            url: "/Home/GetAllAdmin",
+            url: "/Admin/Index",
             type: "GET",
 
             success: function (response) {
@@ -20,6 +50,29 @@
             }
         });
     });
+
+    $("#getAllTeacherBtn").on("click", function () {
+        $.ajax({
+            url: "/Teacher/Index",
+            type: "GET",
+
+            success: function (response) {
+                $("#PartialBody").html(response);
+            }
+        });
+    });
+    $("#getAllStudentsBtn").on("click", function () {
+        $.ajax({
+            url: "/Students/Index",
+            type: "GET",
+
+            success: function (response) {
+                $("#PartialBody").html(response);
+            }
+        });
+    });
+
+
 });
 
 

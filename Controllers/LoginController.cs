@@ -13,20 +13,22 @@ namespace VTYSProje.Controllers
         }
 
         public IActionResult Entering(string email, string password) {
-
-            using (Db db = new Db()) { 
-                List<Admin> isAdmin = db.Admin.Where(x=> x.Email == email && x.Password == password).ToList();
+            if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password)) {
+            using (Db db = new Db())
+            {
+                List<Admin> isAdmin = db.Admin.Where(x => x.Email == email && x.Password == password).ToList();
                 if (isAdmin.Count > 0)
                 {
                     Admin currentUser = isAdmin[0];
                     HttpContext?.Session?.SetString("Name", currentUser.Name + " " + currentUser.Surname);
                     HttpContext?.Session?.SetString("Job", currentUser.Role);
-                    HttpContext?.Session?.SetInt32("CurrentUserId", currentUser.Id);
+                    HttpContext?.Session?.SetInt32("CurrentUserId", currentUser.AdminId);
                     HttpContext?.Session?.SetString("CurrentRole", "Admin");
 
-                    return RedirectToAction("Index","Home");
+                    return RedirectToAction("Index", "Home");
                 }
             }
+        }
 
             return RedirectToAction("Index","Login");
             

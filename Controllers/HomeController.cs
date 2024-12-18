@@ -43,20 +43,22 @@ namespace proje.Controllers
                     }
                     break;
                 case "Student":
+
                     break;
             }
             return PartialView(User);
         }
 
-        public IActionResult getAllAdmin() {
 
-            using(Db db = new Db())
+        public IActionResult getAllCourses()
+        {
+            using (Db db = new Db())
             {
-                List<Admin> allAdmin = db.Admin.ToList();
-                return PartialView(allAdmin);
+                List<Courses> allCourses = db.Courses.ToList();
+                return PartialView(allCourses);
             }
-
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

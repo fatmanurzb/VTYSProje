@@ -4726,11 +4726,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fatma\\source\\repos\\proje\\VTYSProje.csproj",
+      "projectUniqueName": "C:\\Users\\fatma\\source\\repos\\VTYSProje\\VTYSProje.csproj",
       "projectName": "VTYSProje",
-      "projectPath": "C:\\Users\\fatma\\source\\repos\\proje\\VTYSProje.csproj",
+      "projectPath": "C:\\Users\\fatma\\source\\repos\\VTYSProje\\VTYSProje.csproj",
       "packagesPath": "C:\\Users\\fatma\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fatma\\source\\repos\\proje\\obj\\",
+      "outputPath": "C:\\Users\\fatma\\Source\\Repos\\VTYSProje\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\fatma\\AppData\\Roaming\\NuGet\\NuGet.Config",
