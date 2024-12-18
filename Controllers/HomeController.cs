@@ -44,6 +44,11 @@ namespace proje.Controllers
                     break;
                 case "Student":
 
+                    using (Db db = new Db())
+                    {
+                        Students currentUser = db.Students.Find(currentUserId);
+                        User = currentUser;
+                    }
                     break;
             }
             return PartialView(User);

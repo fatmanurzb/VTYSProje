@@ -18,6 +18,7 @@ namespace VTYSProje.Controllers
                 {
                     List<Admin> isAdmin = db.Admin.Where(x => x.Email == email && x.Password == password).ToList();
                     List<Students> isStudent = db.Students.Where(x => x.Email == email && x.Password == password).ToList();
+                    List<Teacher> isTeacher = db.Teacher.Where(x => x.Email == email && x.Password == password).ToList();
                     if (isAdmin.Count > 0)
                     {
                         Admin currentUser = isAdmin[0];
@@ -38,6 +39,16 @@ namespace VTYSProje.Controllers
 
                             return RedirectToAction("Index", "Home");
                         }
+                    else if (isTeacher.Count > 0)
+                    {
+                        Teacher currentUser = isTeacher[0];
+                        HttpContext?.Session?.SetString("Name", currentUser.Name + " " + currentUser.Surname);
+                        HttpContext?.Session?.SetString("Job", currentUser.Role);
+                        HttpContext?.Session?.SetInt32("CurrentUserId", currentUser.TeacherId);
+                        HttpContext?.Session?.SetString("CurrentRole", "Student");
+
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
             }
 

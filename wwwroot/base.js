@@ -1,44 +1,44 @@
 ﻿
-    $("#userProfileBtn").on("click", function () {
-        $.ajax({
-            url: "/Home/UserProfile",
-            type: "GET",
+$("#userProfileBtn").on("click", function () {
+    $.ajax({
+        url: "/Home/UserProfile",
+        type: "GET",
 
-            success: function (response) {
-                $("#PartialBody").html(response);
-            }
-        });
+        success: function (response) {
+            $("#PartialBody").html(response);
+        }
     });
+});
 
-    $(".mainNavBtn").on("click", function (e) {
-        e.preventDefault();
+$(".mainNavBtn").on("click", function (e) {
+    e.preventDefault();
 
-        const url = $(this).data("url");
+    const url = $(this).data("url");
 
-        $.ajax({
-            url: url,
-            type: "GET",
-            success: function (response) {
-                $("#PartialBody").html(response);
-            }
-        });
+    $.ajax({
+        url: url,
+        type: "GET",
+        success: function (response) {
+            $("#PartialBody").html(response);
+        }
     });
+});
 
-    $(".tableDetailBtn").on("click", function (e) {
-        e.preventDefault();
+$(".tableDetailBtn").on("click", function (e) {
+    e.preventDefault();
 
-        const url = $(this).data("url");
-        const id = $(this).data("id");
+    const url = $(this).data("url");
+    const id = $(this).data("id");
 
-        $.ajax({
-            url: url,
-            type: "POST",
-            data: {Id : id},
-            success: function (response) {
-                $("#PartialBody").html(response);
-            }
-        });
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: { Id: id },
+        success: function (response) {
+            $("#PartialBody").html(response);
+        }
     });
+});
 
 $("#logoutBtn").on("click", function (e) {
     e.preventDefault();

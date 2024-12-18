@@ -1,6 +1,7 @@
 ﻿using Data.Context;
 using Data.Entities;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace VTYSProje.Controllers
 {
@@ -28,11 +29,12 @@ namespace VTYSProje.Controllers
                 {
                     Teacher teacher = db.Teacher.Find(teacherCourseId.TeacherId);
 
-                    if (courses! == null)
+                    if (teacher != null)
                     {
                         teacherCourses.Add(teacher);
                     }
                 }
+                
                 return PartialView(new
                 {
                     CoursesInfo = courses,
