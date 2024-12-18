@@ -14,5 +14,10 @@ namespace VTYSProje.Controllers
                 return PartialView(allStudents);
             }
         }
+
+        public IActionResult CourseSelection()
+        {
+            return PartialView();
+        }
     }
 }

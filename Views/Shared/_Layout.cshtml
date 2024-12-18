@@ -1,5 +1,6 @@
 ﻿@{
     var Job = HttpContextAccessor?.HttpContext?.Session.GetString("Job") ?? "unknown";
+    var Role = HttpContextAccessor?.HttpContext?.Session.GetString("CurrentRole") ?? "unknown";
     var Name = HttpContextAccessor?.HttpContext?.Session.GetString("Name") ?? "unknown";
 }
 
@@ -84,31 +85,45 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a class="js-arrow" href="#">
+                            <a class="mainNavBtn" href="#">
                                 <i class="fas fa-desktop"></i>Anasayfa
                             </a>
                         </li>
-                        <li>
-                            <a class="js-arrow" href="#" id="getAllAdminBtn">
-                                <i class="fas fa-table"></i>Yönetim
-                            </a>
-                        </li>
-                        <li>
-                            <a class="js-arrow" href="#" id="getAllTeacherBtn">
-                                <i class="fas fa-table"></i>Akademik Personel
-                            </a>
-                        </li>
-                        <li>
-                            <a class="js-arrow" href="#" id="getAllStudentsBtn">
-                                <i class="fas fa-table"></i>Öğrenciler
-                            </a>
-                        </li>
-                        <li>
-                            <a class="js-arrow" href="#" id="getAllCoursesBtn">
-                                <i class="fas fa-table"></i>Dersler
-                            </a>
-                        </li>
-
+                        @if (Role == "Admin")
+                        {
+                            <li>
+                                <a href="#" class="mainNavBtn" data-url="/Admin/Index">
+                                    <i class="fas fa-table"></i>Yönetim
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="mainNavBtn" data-url="/Teacher/Index">
+                                    <i class="fas fa-table"></i>Akademik Personel
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="mainNavBtn" data-url="/Students/Index">
+                                    <i class="fas fa-table"></i>Öğrenciler
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="mainNavBtn" data-url="/Courses/Index">
+                                    <i class="fas fa-table"></i>Dersler
+                                </a>
+                            </li>
+                        } else if (Role == "Student")
+                        {
+                            <li>
+                                <a href="#" class="mainNavBtn" data-url="/Students/Transcript">
+                                    <i class="fas fa-table"></i>Transkript
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="mainNavBtn" data-url="/Students/CourseSelection">
+                                    <i class="fas fa-table"></i>Ders Seçimi
+                                </a>
+                            </li>
+                        }
                     </ul>
                         </li>
                     </ul>
@@ -157,7 +172,7 @@
                                                 </div>  
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
+                                                <a href="javascript:void(0)" id="logoutBtn">
                                                     <i class="zmdi zmdi-power"></i>Cikis
                                                 </a>
                                             </div>
@@ -207,7 +222,7 @@
 
     <!-- Main JS-->
     <script src="~/js/main.js"></script>
-    <script src="base.js"></script>
+    <script src="~/base.js"></script>
 
 </body>
 

@@ -14,5 +14,31 @@ namespace VTYSProje.Controllers
                 return PartialView(allCourses);
             }
         }
+
+        public IActionResult CoursesDetay(int Id)
+        {
+            using (Db db = new Db())
+            {
+                Courses courses = db.Courses.Find(Id);
+                List<TeacherCourses> teacherCoursesIds = db.TeacherCourses.Where(x => x.CourseId == Id).ToList();
+
+                List<Teacher> teacherCourses = new List<Teacher>();
+
+                foreach (TeacherCourses teacherCourseId in teacherCoursesIds)
+                {
+                    Teacher teacher = db.Teacher.Find(teacherCourseId.TeacherId);
+
+                    if (courses! == null)
+                    {
+                        teacherCourses.Add(teacher);
+                    }
+                }
+                return PartialView(new
+                {
+                    CoursesInfo = courses,
+                    Teachers = teacherCourses
+                });
+            }
+        }
     }
 }

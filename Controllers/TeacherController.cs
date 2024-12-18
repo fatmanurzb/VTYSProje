@@ -26,9 +26,9 @@ namespace VTYSProje.Controllers
 
                 foreach (TeacherCourses teacherCourseId in teacherCoursesIds)
                 {
-                     Courses courses = db.Courses.Find(teacherCourseId.CourseId);
+                    Courses courses = db.Courses.Find(teacherCourseId.CourseId);
 
-                    if (courses! == null) 
+                    if (courses != null) 
                     { 
                         teacherCourses.Add(courses);
                     }

@@ -1,4 +1,4 @@
-﻿$(document).ready(function () {
+﻿
     $("#userProfileBtn").on("click", function () {
         $.ajax({
             url: "/Home/UserProfile",
@@ -10,7 +10,7 @@
         });
     });
 
-    $(".mainNavBtn").on("click", function () {
+    $(".mainNavBtn").on("click", function (e) {
         e.preventDefault();
 
         const url = $(this).data("url");
@@ -24,7 +24,7 @@
         });
     });
 
-    $(".tableDetailBtn").on("click", function () {
+    $(".tableDetailBtn").on("click", function (e) {
         e.preventDefault();
 
         const url = $(this).data("url");
@@ -40,51 +40,18 @@
         });
     });
 
-
-    $("#getAllAdminBtn").on("click", function () {
-        $.ajax({
-            url: "/Admin/Index",
-            type: "GET",
-
-            success: function (response) {
-                $("#PartialBody").html(response);
-            }
-        });
+$("#logoutBtn").on("click", function (e) {
+    e.preventDefault();
+    debugger;
+    $.ajax({
+        url: "/Login/Logout",
+        type: "GET",
+        success: function (response) {
+            window.location = response.redirectUrl;
+        }
     });
-
-    $("#getAllTeacherBtn").on("click", function () {
-        $.ajax({
-            url: "/Teacher/Index",
-            type: "GET",
-
-            success: function (response) {
-                $("#PartialBody").html(response);
-            }
-        });
-    });
-    $("#getAllStudentsBtn").on("click", function () {
-        $.ajax({
-            url: "/Students/Index",
-            type: "GET",
-
-            success: function (response) {
-                $("#PartialBody").html(response);
-            }
-        });
-    });
-
-    $("#getAllCoursesBtn").on("click", function () {
-        $.ajax({
-            url: "/Courses/Index",
-            type: "GET",
-
-            success: function (response) {
-                $("#PartialBody").html(response);
-            }
-        });
-    });
-
-
 });
+
+
 
 
