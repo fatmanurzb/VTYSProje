@@ -24,7 +24,7 @@ namespace proje.Controllers
             return View();
         }
 
-        [HttpGet]
+        [HttpPost]
         public IActionResult UserProfile()
         {
             int currentUserId = Convert.ToInt32(HttpContext?.Session?.GetInt32("CurrentUserId"));
