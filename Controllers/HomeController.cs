@@ -1,6 +1,5 @@
 using Data.Entities;
 using Microsoft.AspNetCore.Mvc;
-using proje.Models;
 using System.Diagnostics;
 using Data.Context;
 
@@ -52,13 +51,6 @@ namespace proje.Controllers
                     break;
             }
             return PartialView(User);
-        }
-
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

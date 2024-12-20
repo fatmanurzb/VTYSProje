@@ -25,7 +25,7 @@ namespace VTYSProje.Controllers
 
                 foreach (Courses course in allCourses)
                 {
-                    TeacherCourses teacherCourses = db.TeacherCourses.Where(x=> x.CourseId == course.CourseId).First();
+                    TeacherCourses teacherCourses = db.TeacherCourses.Where(x=> x.CourseId == course.CourseId).FirstOrDefault();
 
                     if (teacherCourses != null)
                     {
@@ -45,10 +45,10 @@ namespace VTYSProje.Controllers
                     }
                 }
 
-                List<StudentCourses> stundentCourseIdList = db.StudentCourses.Where(x=>x.StudentId == userId).ToList();
+                List<StudentCourses> stundentCoursesIdList = db.StudentCourses.Where(x=> x.StudentId == userId).ToList();
                 List<dynamic> studentCourses = new List<dynamic>();
 
-                foreach(StudentCourses courseId in stundentCourseIdList)
+                foreach(StudentCourses courseId in stundentCoursesIdList)
                 {
                     Courses course = db.Courses.Find(courseId.CourseId);
                     
