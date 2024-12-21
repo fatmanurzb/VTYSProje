@@ -1,5 +1,5 @@
 ﻿@model dynamic
-
+<script src="~/base.js"></script>
 
 <div class="row">
     <div class="col-6">
@@ -17,16 +17,16 @@
                         <th>İşlemler</th>
                     </tr>
                 </thead>
-                <tbody>
-                    @foreach (var course in Model.AllCourses)
+                <tbody id="unSelectedCoursesTable">
+                    @foreach (dynamic course in Model.AllCourses)
                     {
-                        <tr>
+                        <tr class="unSelectedCourse" data-id="@course.CourseId">
                             <td>@course.TeacherName</td>
                             <td>@course.CourseName</td>
                             <td>@course.CourseCredit</td>
                             <td>@(course.CourseType == true ? "Zorunlu" : "Seçmeli")</td>
                             <td>
-                                <button type="button" class="btn btn-success">Ekle</button>
+                                <button type="button" class="btn btn-success courseSelectBtn" data-id="@course.CourseId">Ekle</button>
                             </td>
                         </tr>
                     }
@@ -39,6 +39,25 @@
         <section class="card-header">
             <h3>Seçilmiş Dersler</h3>
         </section>
+        <br />
+        <div class="row">
+            <div class="col-6">
+                @if(Model.StudentCourses.Count == 0)
+                {
+                    <button type="button" class="btn btn-primary" data-url="/Student/SelectCourse" id="selectedCoursesSaveBtn">
+                        Kaydet
+                    </button>
+                }
+                else
+                {
+                    <button type="button" class="btn btn-primary" data-url="/Student/SelectCourse" id="selectedCoursesSaveBtn" disabled>
+                        Kaydet
+                    </button>
+                }
+            </div>
+        </div>
+        <br />
+        <br />
         <div class="table-responsive table--no-card m-b-30">
             <table class="table table-borderless table-striped table-earning">
                 <thead>
@@ -50,16 +69,16 @@
                         <th>İşlemler</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="selectedCoursesTable">
                     @foreach (var course in Model.StudentCourses)
                     {
-                        <tr>
+                        <tr data-id="@course.CourseId">
                             <td>@course.TeacherName</td>
                             <td>@course.CourseName</td>
                             <td>@course.CourseCredit</td>
                             <td>@(course.CourseType == true ? "Zorunlu" : "Seçmeli")</td>
                             <td>
-                                <button type="button" class="btn btn-danger">Sil</button>
+                                <button type="button" class="btn btn-danger courseUnSelectBtn" data-id="@course.CourseId">Çıkart</button>
                             </td>
                         </tr>
                     }
