@@ -1,0 +1,32 @@
+﻿@model List<Students>
+
+<script src="~/base.js" asp-append-version="true"></script>
+
+<div class="col-12">
+    <div class="table-responsive table--no-card m-b-30">
+        <table class="table table-borderless table-striped table-earning">
+            <thead>
+                <tr>
+                    <th>Öğrenci ID</th>
+                    <th>Öğrenci Adı</th>
+                    <th>Öğrenci Mail</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody id="studentConfirmTable">
+                @foreach (Students student in Model)
+                {
+                    <tr class="studentCourseConfirmData" data-id="@student.StudentId">
+                        <td>@student.StudentId</td>
+                        <td>@student.Name  @student.Surname</td>
+                        <td>@student.Email</td>
+                        <td>
+                            <button type="button" class="btn btn-success studentCourseConfirmBtn" data-id="@student.StudentId">Onayla</button>
+                            <button type="button" class="btn btn-danger studentCourseRejectBtn" data-id="@student.StudentId">Reddet</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

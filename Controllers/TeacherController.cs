@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Data.Context;
 using Data.Entities;
+using Microsoft.AspNetCore.Http;
 
 namespace VTYSProje.Controllers
 {
@@ -39,6 +40,59 @@ namespace VTYSProje.Controllers
                     Course = teacherCourses
                 });
             }
+        }
+
+        public IActionResult StudentCourseSelectConfirmPage()
+        {
+            using (Db db = new Db())
+            {
+                string sessionId = HttpContext?.Session?.GetInt32("CurrentUserId").ToString();
+                int userId = Convert.ToInt32(sessionId);
+
+                Teacher teacher = db.Teacher.Find(userId);
+                List<Students> isInstructor = db.Students.Where(s=> s.InstructorId == teacher.TeacherId && s.isCourseSelectionConfirmed == false).ToList();
+
+                return PartialView(isInstructor);
+            }
+        }
+
+        [HttpPost]
+        public IActionResult StudentCourseConfirm(int Id)
+        {
+            using (Db db = new Db())
+            {
+                Students confirmedStudent = db.Students.Find(Id);
+                if (confirmedStudent != null)
+                {
+                    StudentCourses confirmedCourses = db.StudentCourses.Where(s => s.StudentId == confirmedStudent.StudentId).FirstOrDefault();
+
+                    confirmedStudent.isCourseSelectionConfirmed = true;
+
+                    db.SaveChanges();
+                    return Json(new { success = true, message = "Öğrenci ders seçimi onaylandı!"});
+                }
+            }
+
+            return Json(new { success = false, message = "Bir sorun oluştu!"});
+        }
+
+        [HttpPost]
+        public IActionResult StudentCourseReject(int Id)
+        {
+            using (Db db = new Db())
+            {
+                Students confirmedStudent = db.Students.Find(Id);
+                if (confirmedStudent != null)
+                {
+                    StudentCourses confirmedCourses = db.StudentCourses.Where(s => s.StudentId == confirmedStudent.StudentId).FirstOrDefault();
+                    db.StudentCourses.Remove(confirmedCourses);
+
+                    db.SaveChanges();
+                    return Json(new { success = true, message = "Öğrenci ders seçimi reddedildi!" });
+                }
+            }
+
+            return Json(new { success = false, message = "Bir sorun oluştu!" });
         }
     }
 }

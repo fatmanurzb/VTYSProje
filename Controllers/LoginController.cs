@@ -45,7 +45,7 @@ namespace VTYSProje.Controllers
                         HttpContext?.Session?.SetString("Name", currentUser.Name + " " + currentUser.Surname);
                         HttpContext?.Session?.SetString("Job", currentUser.Role);
                         HttpContext?.Session?.SetInt32("CurrentUserId", currentUser.TeacherId);
-                        HttpContext?.Session?.SetString("CurrentRole", "Student");
+                        HttpContext?.Session?.SetString("CurrentRole", "Teacher");
 
                         return RedirectToAction("Index", "Home");
                     }

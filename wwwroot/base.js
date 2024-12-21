@@ -111,6 +111,43 @@ $(document).on("click", "#selectedCoursesSaveBtn", function (e) {
     })
 });
 
+$(document).on("click", ".studentCourseConfirmBtn", function (e) {
+    e.preventDefault();
 
+    const id = $(this).data("id");
+    const $row = $(this).closest("tr"); // Tıklanan butonun bulunduğu tr'yi seçiyoruz.
 
+    $.ajax({
+        url: "/Teacher/StudentCourseConfirm",
+        method: "POST",
+        data: { Id: id },
+        success: function (response) {
+            if (response.success) {
+                $row.remove(); // Seçilen tr etiketini DOM'dan kaldırıyoruz.
+            }
+
+            alert(response.message);
+        }
+    });
+});
+
+$(document).on("click", ".studentCourseRejectBtn", function (e) {
+    e.preventDefault();
+
+    const id = $(this).data("id");
+    const $row = $(this).closest("tr"); // Tıklanan butonun bulunduğu tr'yi seçiyoruz.
+
+    $.ajax({
+        url: "/Teacher/StudentCourseC",
+        method: "POST",
+        data: { Id: id },
+        success: function (response) {
+            if (response.success) {
+                $row.remove(); // Seçilen tr etiketini DOM'dan kaldırıyoruz.
+            }
+
+            alert(response.message);
+        }
+    });
+});
 

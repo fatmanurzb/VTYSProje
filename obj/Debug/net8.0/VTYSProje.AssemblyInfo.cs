@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VTYSProje")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+893c42037ea194b3a7a4e0119f91360839e6f551")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+10e7cf7e09ca90708b00b678a008a86c9ebefd67")]
 [assembly: System.Reflection.AssemblyProductAttribute("VTYSProje")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VTYSProje")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

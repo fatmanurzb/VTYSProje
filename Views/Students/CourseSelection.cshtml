@@ -1,5 +1,4 @@
 ﻿@model dynamic
-<script src="~/base.js"></script>
 
 <div class="row">
     <div class="col-6">
@@ -44,13 +43,13 @@
             <div class="col-6">
                 @if(Model.StudentCourses.Count == 0)
                 {
-                    <button type="button" class="btn btn-primary" data-url="/Student/SelectCourse" id="selectedCoursesSaveBtn">
+                    <button type="button" class="btn btn-primary" data-url="/Students/SelectCourse" id="selectedCoursesSaveBtn">
                         Kaydet
                     </button>
                 }
                 else
                 {
-                    <button type="button" class="btn btn-primary" data-url="/Student/SelectCourse" id="selectedCoursesSaveBtn" disabled>
+                    <button type="button" class="btn btn-primary" data-url="/Students/SelectCourse" id="selectedCoursesSaveBtn" disabled>
                         Kaydet
                     </button>
                 }
