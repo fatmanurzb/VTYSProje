@@ -1,6 +1,4 @@
-﻿
-
-$("#userProfileBtn").on("click", function () {
+﻿$("#userProfileBtn").on("click", function () {
     $.ajax({
         url: "/Home/UserProfile",
         type: "GET",
@@ -43,7 +41,7 @@ $(".tableDetailBtn").on("click", function (e) {
 
 $("#logoutBtn").on("click", function (e) {
     e.preventDefault();
-    debugger;
+
     $.ajax({
         url: "/Login/Logout",
         type: "GET",
@@ -70,6 +68,7 @@ $(document).on("click", ".courseSelectBtn", function (e) {
 
 $(document).on("click", ".courseUnSelectBtn", function (e) {
     e.preventDefault();
+    debugger;
     const id = $(this).data("id");
 
     var selectedRow = $(".selectedCourse").filter(function () {
@@ -138,7 +137,7 @@ $(document).on("click", ".studentCourseRejectBtn", function (e) {
     const $row = $(this).closest("tr"); // Tıklanan butonun bulunduğu tr'yi seçiyoruz.
 
     $.ajax({
-        url: "/Teacher/StudentCourseC",
+        url: "/Teacher/StudentCourseReject",
         method: "POST",
         data: { Id: id },
         success: function (response) {

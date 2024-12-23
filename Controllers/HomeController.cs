@@ -23,11 +23,10 @@ namespace proje.Controllers
             return View();
         }
 
-        [HttpPost]
         public IActionResult UserProfile()
         {
             int currentUserId = Convert.ToInt32(HttpContext?.Session?.GetInt32("CurrentUserId"));
-            string? currentUserRole = Convert.ToString(HttpContext?.Session?.GetString("CurrentRole"));
+            string currentUserRole = HttpContext?.Session?.GetString("CurrentRole");
 
             dynamic User = null;
             
@@ -46,6 +45,14 @@ namespace proje.Controllers
                     using (Db db = new Db())
                     {
                         Students currentUser = db.Students.Find(currentUserId);
+                        User = currentUser;
+                    }
+                    break;
+                case "Teacher":
+
+                    using (Db db = new Db())
+                    {
+                        Teacher currentUser = db.Teacher.Find(currentUserId);
                         User = currentUser;
                     }
                     break;

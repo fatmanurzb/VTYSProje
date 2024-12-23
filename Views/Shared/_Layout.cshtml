@@ -84,13 +84,13 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
-                            <a class="mainNavBtn" data-url="/Home/Index" href="#">
-                                <i class="fas fa-desktop"></i>Anasayfa
-                            </a>
-                        </li>
                         @if (Role == "Admin")
                         {
+                            <li class="active has-sub">
+                                <a href="#" class="mainNavBtn" data-url="/Home/Index">
+                                    <i class="fas fa-desktop"></i>Anasayfa
+                                </a>
+                            </li>
                             <li>
                                 <a href="#" class="mainNavBtn" data-url="/Admin/Index">
                                     <i class="fas fa-table"></i>Yönetim
@@ -113,6 +113,11 @@
                             </li>
                         } else if (Role == "Student")
                         {
+                            <li class="active has-sub">
+                                <a href="#" class="mainNavBtn" data-url="/Home/Index">
+                                    <i class="fas fa-desktop"></i>Anasayfa
+                                </a>
+                            </li>
                             <li>
                                 <a href="#" class="mainNavBtn" data-url="/Students/Transcript">
                                     <i class="fas fa-table"></i>Transkript
@@ -126,14 +131,18 @@
                         }
                         else if (Role == "Teacher")
                         {
+                            <li class="active has-sub">
+                                <a href="#" class="mainNavBtn" data-url="/Home/Index">
+                                    <i class="fas fa-desktop"></i>Anasayfa
+                                </a>
+                            </li>
                             <li>
                                 <a href="#" class="mainNavBtn" data-url="/Teacher/StudentCourseSelectConfirmPage">
                                     <i class="fas fa-table"></i>Ders Seçimi Onaylama
                                 </a>
                             </li>
                         }
-                    </ul>
-                        </li>
+
                     </ul>
                 </nav>
             </div>
