@@ -18,7 +18,12 @@ $(".mainNavBtn").on("click", function (e) {
         url: url,
         type: "GET",
         success: function (response) {
-            $("#PartialBody").html(response);
+            if (url == "/Home/Index") {
+                window.location = "/Home";
+            }
+            else {
+                $("#PartialBody").html(response);
+            }
         }
     });
 });
@@ -61,7 +66,7 @@ $(document).on("click", ".courseSelectBtn", function (e) {
 
     selectedRow.detach();
     selectedRow.removeClass("unSelectedCourse").addClass("selectedCourse");
-    selectedRow.find("button").off("click").removeClass("btn-success courseSelectBtn").addClass("btn-danger courseSelected").text("Çıkart").on("click");
+    selectedRow.find("button").off("click").removeClass("btn-success courseSelectBtn").addClass("btn-danger courseUnSelectBtn").text("Çıkart").on("click");
     $("#selectedCoursesTable").append(selectedRow);
 });
 
@@ -77,7 +82,7 @@ $(document).on("click", ".courseUnSelectBtn", function (e) {
 
     selectedRow.detach();
     selectedRow.removeClass("selectedCourse").addClass("unSelectedCourse");
-    selectedRow.find("button").off("click").removeClass("btn-danger courseSelectBtn").addClass("btn-success courseSelected").text("Ekle").on("click");
+    selectedRow.find("button").off("click").removeClass("btn-danger courseUnSelectBtn").addClass("btn-success courseSelectBtn").text("Ekle").on("click");
     $("#unSelectedCoursesTable").append(selectedRow);
 });
 
