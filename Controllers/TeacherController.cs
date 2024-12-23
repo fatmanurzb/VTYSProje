@@ -84,8 +84,8 @@ namespace VTYSProje.Controllers
                 Students confirmedStudent = db.Students.Find(Id);
                 if (confirmedStudent != null)
                 {
-                    StudentCourses confirmedCourses = db.StudentCourses.Where(s => s.StudentId == confirmedStudent.StudentId).FirstOrDefault();
-                    db.StudentCourses.Remove(confirmedCourses);
+                    List<StudentCourses> confirmedCourses = db.StudentCourses.Where(s => s.StudentId == confirmedStudent.StudentId).ToList();
+                    db.StudentCourses.RemoveRange(confirmedCourses);
 
                     db.SaveChanges();
                     return Json(new { success = true, message = "Öğrenci ders seçimi reddedildi!" });
