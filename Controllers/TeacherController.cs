@@ -51,8 +51,18 @@ namespace VTYSProje.Controllers
 
                 Teacher teacher = db.Teacher.Find(userId);
                 List<Students> isInstructor = db.Students.Where(s=> s.InstructorId == teacher.TeacherId && s.isCourseSelectionConfirmed == false).ToList();
+                List<Students> studentsSelectedCourse = new List<Students>();   
 
-                return PartialView(isInstructor);
+                foreach(Students student in isInstructor)
+                {
+                    List<StudentCourses> studentCourses = db.StudentCourses.Where(x=> x.StudentId == student.StudentId).ToList();
+                    if(studentCourses.Count> 0)
+                    {
+                        studentsSelectedCourse.Add(student);
+                    }
+
+                }
+                return PartialView(studentsSelectedCourse);
             }
         }
 
